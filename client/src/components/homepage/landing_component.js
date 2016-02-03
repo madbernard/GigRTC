@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import {connect} from 'react-redux';
-import {getActivePerformances} from '../../actions'
+import {getActivePerformances} from '../../actions';
 
 export class LandingComponent extends Component{
 
