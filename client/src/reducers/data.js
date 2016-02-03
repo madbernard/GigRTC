@@ -5,26 +5,30 @@ const { FETCH_PROTECTED_DATA_REQUEST, RECEIVE_PROTECTED_DATA,FETCH_ACTIVE_STREAM
 import jwtDecode from 'jwt-decode';
 
 const initialState = {
-    data: null,
+    data: {
+      activeStreams: null
+    },
     isFetching: false
 };
 
 export default createReducer(initialState, {
-    [RECEIVE_PROTECTED_DATA]: (state, payload) => {
-        return Object.assign({}, state, {
-            'data': payload.data,
-            'isFetching': false
-        });
-    },
-    [FETCH_PROTECTED_DATA_REQUEST]: (state, payload) => {
-        return Object.assign({}, state, {
-            'isFetching': true
-        });
-    },
+    // [RECEIVE_PROTECTED_DATA]: (state, payload) => {
+    //     return Object.assign({}, state, {
+    //         'data': payload.data,
+    //         'isFetching': false
+    //     });
+    // },
+    // [FETCH_PROTECTED_DATA_REQUEST]: (state, payload) => {
+    //     return Object.assign({}, state, {
+    //         'isFetching': true
+    //     });
+    // },
     [FETCH_ACTIVE_STREAMS] : (state,payload) =>{
         return Object.assign({}, state, {
             'isFetching': true,
-            'data' : payload
+            'data' : {
+              activeStreams: payload
+            }
         });
     }
 });

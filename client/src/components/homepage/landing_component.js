@@ -24,11 +24,28 @@ export class LandingComponent extends Component{
     renderEvents(){
         return this.props.data.map((activeStreams)=> {
             return (
-                <li className="list-group-item" key={activeStreams.id}>
-                    <Link to={`activeStream/${activeStreams.id}`}>
+                // <li className="list-group-item" key={activeStreams.id}>
+                //     <Link to={`activeStream/${activeStreams.id}`}>
 
-                    </Link>
-                </li>
+                //     </Link>
+                // </li>
+                <div style={styles.root}>
+                  <GridList
+                    cellHeight={180}
+                    style={styles.gridList}
+                  >
+                    {tilesData.map(tile => (
+                      <GridTile
+                        key={tile.title}
+                        title={tile.title}
+                        subtitle={<span>by <b>{tile.author}</b></span>}
+                        actionIcon={<IconButton><StarBorder color="white"/></IconButton>}
+                      >
+                        <img src={tile.img} />
+                      </GridTile>
+                    ))}
+                  </GridList>
+                </div>
             )
         })
     }
